@@ -7,11 +7,12 @@ This project was made using Expo, React-Native and Firebase.
 * **Clone and install packages**
 
 ```
-git clone https://proclinicsystem@dev.azure.com/proclinicsystem/Symptogram/_git/Symptogram
+git clone https://github.com/indritkello/Symptogram.git
 cd Symptogram
 npm install
+npm install expo
+npm install -g expo-cli
 expo start
 ```
 
-* **Note: In case of missing packages, just run the recommended commands right away.**
-
+Indrit & Lasse :)

@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../assets/constants';
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+		alignItems: 'center',
+		backgroundColor: Colors.white
     },
     formContainer: {
         flexDirection: 'row',

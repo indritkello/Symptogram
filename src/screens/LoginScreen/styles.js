@@ -1,9 +1,17 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../assets/constants';
+import { Dimensions } from "react-native";
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: Colors.secondaryLighter
     },
     title: {
 
@@ -16,8 +24,8 @@ export default StyleSheet.create({
         margin: 30
     },
     input: {
-        height: 48,
-        borderRadius: 5,
+        height: 70,
+        borderRadius: 20,
         overflow: 'hidden',
         backgroundColor: 'white',
         marginTop: 10,
@@ -27,12 +35,13 @@ export default StyleSheet.create({
         paddingLeft: 16
     },
     button: {
-        backgroundColor: '#788eec',
-        marginLeft: 30,
-        marginRight: 30,
+        backgroundColor: Colors.primary,
+        marginLeft: 50,
+        marginRight: 50,
         marginTop: 20,
-        height: 48,
-        borderRadius: 5,
+        height: 70,
+		borderRadius: 20,
+		width: windowWidth-100,
         alignItems: "center",
         justifyContent: 'center'
     },
@@ -51,7 +60,7 @@ export default StyleSheet.create({
         color: '#2e2e2d'
     },
     footerLink: {
-        color: "#788eec",
+        color: Colors.red,
         fontWeight: "bold",
         fontSize: 16
     }

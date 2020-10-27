@@ -1,0 +1,18 @@
+{
+  "expo": {
+    "name": "symptogram-app",
+    "slug": "symptogram-app",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/images/icon.png",    
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}

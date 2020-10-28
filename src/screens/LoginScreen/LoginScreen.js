@@ -38,7 +38,7 @@ export default function LoginScreen({navigation}) {
                 alert(error)
             })
     }
-
+	
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
@@ -48,6 +48,8 @@ export default function LoginScreen({navigation}) {
                     style={styles.logo}
                     source={require('../../../assets/images/icon.png')}
                 /> */}
+				<Text h1 style={styles.h1}>Login</Text>
+				<Text style={styles.credentials}>Enter your login details to access your account</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'

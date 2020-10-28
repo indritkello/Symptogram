@@ -6,6 +6,9 @@ export const Colors = {
 	yellow: '#FFCF5C',
 	red: '#F75010',
 	black: '#000',
-	white: '#fff',
-	purple: '#0a012a',
+	white: '#fff'
+}
+
+export const Fonts = {
+
 }

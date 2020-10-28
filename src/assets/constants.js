@@ -6,7 +6,8 @@ export const SymColors = {
 	yellow: '#FFCF5C',
 	red: '#F75010',
 	black: '#000',
-	white: '#fff'
+	white: '#fff',
+	input: '#A2CBF1'
 }
 
 export const Fonts = {

@@ -3,6 +3,8 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { firebase } from '../../firebase/config'
 import styles from './styles';
+import { SymColors } from '../../assets/constants';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function LoginScreen({navigation}) {
 
@@ -46,7 +48,7 @@ export default function LoginScreen({navigation}) {
     }
 	
     return (
-        <View style={styles.container}>
+        <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}>
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
@@ -54,12 +56,12 @@ export default function LoginScreen({navigation}) {
                     style={styles.logo}
                     source={require('../../../assets/images/icon.png')}
                 /> */}
-				<Text h1 style={[styles.h1, {fontFamily:'RobotoB'}]}>Login</Text>
+				<Text h1 style={styles.h1}>Login</Text>
 				<Text style={styles.credentials}>Enter your login details to access your account</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'
-                    placeholderTextColor="#aaaaaa"
+                    placeholderTextColor={SymColors.input}
                     onChangeText={(text) => setEmail(text)}
                     value={email}
                     underlineColorAndroid="transparent"
@@ -67,7 +69,7 @@ export default function LoginScreen({navigation}) {
                 />
                 <TextInput
                     style={styles.input}
-                    placeholderTextColor="#aaaaaa"
+					placeholderTextColor={SymColors.input}
                     secureTextEntry
                     placeholder='Password'
                     onChangeText={(text) => setPassword(text)}
@@ -87,6 +89,6 @@ export default function LoginScreen({navigation}) {
                     <Text style={styles.footerText}><Text onPress={onDoctorSignIn} style={styles.footerLink}>Sign in as doctor</Text></Text>
                 </View>
             </KeyboardAwareScrollView>
-        </View>
+        </LinearGradient>
     )
 }

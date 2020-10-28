@@ -25,15 +25,18 @@ export default StyleSheet.create({
 	},
 	h1: {
 		textAlign: 'center',
-		fontSize: 28,
-		fontWeight: 'normal'
+		fontSize: 42,
+		fontWeight: 'normal',
+		fontFamily:'RobotoB'
 	},
 	credentials: {
+		fontSize: 16,
 		textAlign: 'center',
 		marginTop: 20,
 		marginBottom: 20,
 		paddingLeft: 125,
 		paddingRight: 125,
+		fontFamily:'RobotoR'
 	},
     input: {
         height: 70,
@@ -42,26 +45,32 @@ export default StyleSheet.create({
         backgroundColor: SymColors.white,
         marginTop: 10,
         marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
-        paddingLeft: 16
+        marginLeft: 45,
+        marginRight: 45,
+		paddingLeft: 16,
+		color:SymColors.black
     },
     button: {
         backgroundColor: SymColors.primary,
-        marginLeft: 50,
-        marginRight: 50,
+        marginLeft: 65,
+        marginRight: 65,
         marginTop: 20,
-        height: 70,
+        height: 50,
 		borderRadius: 20,
-		width: windowWidth-100,
+		width: windowWidth-130,
         alignItems: "center",
-        justifyContent: 'center'
+		justifyContent: 'center',
+		shadowColor: SymColors.primary,
+		shadowOffset: { width: 0, height: 1 },
+		shadowOpacity: 0.5,
+		shadowRadius: 6, 
+		elevation: 5
     },
     buttonTitle: {
         color: SymColors.white,
-		fontSize: 24,
+		fontSize: 18,
 		textTransform: "uppercase",
-        fontWeight: "bold"
+		fontFamily:'RobotoB'
     },
     footerView: {
         flex: 1,
@@ -70,11 +79,13 @@ export default StyleSheet.create({
     },
     footerText: {
         fontSize: 16,
-        color: SymColors.black
+		color: SymColors.black,
+		fontFamily:'RobotoR'
     },
     footerLink: {
         color: SymColors.red,
         fontWeight: "bold",
-        fontSize: 16
+		fontSize: 16,
+		fontFamily:'RobotoB'
     }
 })

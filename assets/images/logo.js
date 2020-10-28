@@ -11,7 +11,11 @@ function SymptogramLogo(props) {
             transform="translate(55.52 37)"
             fill="#4287d9"
             fontSize={40}
+<<<<<<< HEAD
             //fontFamily='RobotoB'
+=======
+            // fontFamily:RobotoB
+>>>>>>> 7199dc3b70372cfb687c86a54242aa9f6e47c5b8
             fontWeight={700}
             letterSpacing="-.015em"
           >

@@ -73,9 +73,9 @@ export default function App() {
           </Stack.Screen>
         ) : (
           <>
-		  	<Stack.Screen options={{headerTransparent: true, headerTitle: false}} name="Welcome" component={WelcomeScreen} />
-            <Stack.Screen options={{headerTransparent: true, headerTitle: false}} name="Registration" component={RegistrationScreen} />
-            <Stack.Screen options={{headerTransparent: true, headerTitle: false}} name="Login" component={LoginScreen} />
+		  	<Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="Welcome" component={WelcomeScreen} />
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="Registration" component={RegistrationScreen} />
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="Login" component={LoginScreen} />
           </>
         )}
       </Stack.Navigator>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
+import { BottomNav } from '../../components/bottom-nav';
 
 export default function HomeScreen(props) {
 
@@ -87,6 +88,7 @@ export default function HomeScreen(props) {
                     />
                 </View>
             )}
+            <BottomNav/>
         </View>
     )
 }

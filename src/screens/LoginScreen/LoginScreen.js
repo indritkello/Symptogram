@@ -11,8 +11,12 @@ export default function LoginScreen({navigation}) {
     const onFooterLinkPress = () => {
         navigation.navigate('Registration')
     }
+    const onDoctorSignIn = () => {
+        navigation.navigate('DoctorLogin')
+    }
 
     const onLoginPress = () => {
+        firebase.auth().then(function(){
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -37,6 +41,7 @@ export default function LoginScreen({navigation}) {
             .catch(error => {
                 alert(error)
             })
+        });
     }
 
     return (
@@ -74,6 +79,9 @@ export default function LoginScreen({navigation}) {
                 </TouchableOpacity>
                 <View style={styles.footerView}>
                     <Text style={styles.footerText}>Don't have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign up</Text></Text>
+                </View>
+                <View style={styles.footerView}>
+                    <Text style={styles.footerText}><Text onPress={onDoctorSignIn} style={styles.footerLink}>Sign in as doctor</Text></Text>
                 </View>
             </KeyboardAwareScrollView>
         </View>

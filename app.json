@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "symptogram-app",
-    "slug": "symptogram-app",
-    "version": "1.0.0",
+    "name": "symptogram",
+    "slug": "symptogram",
+    "version": "1.0",
     "orientation": "default",
     "icon": "./assets/images/icon.png",    
     "updates": {

@@ -16,6 +16,9 @@ export default function App() {
   const [user, setUser] = useState(null)
 
 
+  if (loading) {	
+      setLoading(false)
+  }
 
   useEffect(() => {
     const usersRef = firebase.firestore().collection('users');

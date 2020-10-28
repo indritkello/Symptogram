@@ -21,7 +21,6 @@ export default function App() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    const usersRef = firebase.firestore().collection('users');
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
        
@@ -46,6 +45,9 @@ export default function App() {
 	Inter_700Bold,
   });
 
+if(!fontsLoaded){
+  return <AppLoading/>
+}
 
   return (
     <NavigationContainer
@@ -72,9 +74,9 @@ export default function App() {
           <BottomNavigation.Action
             key="home"
             iconSet="SimpleLineIcons"
-            icon={<SimpleLineIcons name="home" size={25} color="red" />}
-            label="Home"
-            onPress={() => this.changeReset('Home')}
+            icon={<SimpleLineIcons name="face" size={25} color="red" />}
+            label="You"
+            onPress={() => this.changeReset('You')}
           />
 
           <BottomNavigation.Action
@@ -83,12 +85,12 @@ export default function App() {
             label="Symptoms"
             onPress={() => this.changeReset('List')}
           />
-<BottomNavigation.Action
+        <BottomNavigation.Action
             key="logout"
             icon={<SimpleLineIcons name="trending-flat" size={25} />}
             label="Logout"
-            onPress={() =>  this.changeReset('Login')}
-          />
+            onPress={() =>  setUser(null)}
+            />
         </BottomNavigation> :<></>
         }
     </NavigationContainer>

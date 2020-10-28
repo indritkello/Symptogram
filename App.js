@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import { LoginScreen, HomeScreen, RegistrationScreen } from './src/screens'
+import { WelcomeScreen, LoginScreen, HomeScreen, RegistrationScreen } from './src/screens'
 import { AppLoading } from 'expo';
 import { useFonts, Roboto_100Thin, Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
@@ -32,7 +32,7 @@ export default function App() {
           .get()
           .then((document) => {
             const userData = document.data()
-            setLoading(false)
+            // setLoading(false)
             setUser(userData)
           })
           .catch((error) => {
@@ -61,7 +61,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer
+	screenOptions={{
+		headerShown: false
+	  }}
+	>
       <Stack.Navigator>
         { user ? (
           <Stack.Screen name="Home">
@@ -69,8 +73,9 @@ export default function App() {
           </Stack.Screen>
         ) : (
           <>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Registration" component={RegistrationScreen} />
+		  	<Stack.Screen options={{headerTransparent: true, headerTitle: false}} name="Welcome" component={WelcomeScreen} />
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false}} name="Registration" component={RegistrationScreen} />
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false}} name="Login" component={LoginScreen} />
           </>
         )}
       </Stack.Navigator>

@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
-import { Colors, Fonts } from '../../assets/constants';
+import { Colors } from '../../assets/constants';
 import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
+	
     container: {
 		flex: 1,
 		flexDirection: 'row',
@@ -15,16 +16,16 @@ export default StyleSheet.create({
     },
     title: {
     },
-    // logo: {
-    //     flex: 1,
-    //     height: 120,
-    //     width: 90,
-    //     alignSelf: "center",
-    //     margin: 30
-	// },
+    logo: {
+        flex: 1,
+        height: 120,
+        width: 90,
+        alignSelf: "center",
+        margin: 30
+	},
 	h1: {
 		textAlign: 'center',
-		fontSize: 42,
+		fontSize: 28,
 		fontWeight: 'normal'
 	},
 	credentials: {

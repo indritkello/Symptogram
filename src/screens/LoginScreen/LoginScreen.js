@@ -5,6 +5,7 @@ import { firebase } from '../../firebase/config'
 import styles from './styles';
 
 export default function LoginScreen({navigation}) {
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -48,7 +49,7 @@ export default function LoginScreen({navigation}) {
                     style={styles.logo}
                     source={require('../../../assets/images/icon.png')}
                 /> */}
-				<Text h1 style={styles.h1}>Login</Text>
+				<Text h1 style={[styles.h1, {fontFamily:'RobotoB'}]}>Login</Text>
 				<Text style={styles.credentials}>Enter your login details to access your account</Text>
                 <TextInput
                     style={styles.input}

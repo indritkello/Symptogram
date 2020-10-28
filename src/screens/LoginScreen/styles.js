@@ -25,12 +25,12 @@ export default StyleSheet.create({
 	},
 	h1: {
 		textAlign: 'center',
-		fontSize: 42,
+		fontSize: 32,
 		fontWeight: 'normal',
 		fontFamily:'RobotoB'
 	},
 	credentials: {
-		fontSize: 16,
+		fontSize: 18,
 		textAlign: 'center',
 		marginTop: 20,
 		marginBottom: 20,
@@ -42,7 +42,8 @@ export default StyleSheet.create({
         height: 70,
         borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: SymColors.white,
+		backgroundColor: SymColors.white,
+		fontSize: 16,
         marginTop: 10,
         marginBottom: 10,
         marginLeft: 45,
@@ -68,7 +69,7 @@ export default StyleSheet.create({
     },
     buttonTitle: {
         color: SymColors.white,
-		fontSize: 18,
+		fontSize: 20,
 		textTransform: "uppercase",
 		fontFamily:'RobotoB'
     },
@@ -78,14 +79,15 @@ export default StyleSheet.create({
         marginTop: 20
     },
     footerText: {
-        fontSize: 16,
+        fontSize: 18,
 		color: SymColors.black,
 		fontFamily:'RobotoR'
     },
     footerLink: {
         color: SymColors.red,
         fontWeight: "bold",
-		fontSize: 16,
-		fontFamily:'RobotoB'
+		fontSize: 18,
+		fontFamily:'RobotoB',
+		textDecorationLine: 'underline'
     }
 })

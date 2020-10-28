@@ -21,7 +21,16 @@ export default StyleSheet.create({
         height: 120,
         width: 90,
         alignSelf: "center",
-        margin: 30
+        margin: 0
+	},
+	welcomeImage: {
+        flex: 1,
+        height: 120,
+        width: 90,
+        alignSelf: "center",
+		marginTop: 75,
+		marginBottom: 75,
+
 	},
 	h1: {
 		textAlign: 'center',
@@ -29,13 +38,13 @@ export default StyleSheet.create({
 		fontWeight: 'normal',
 		fontFamily:'RobotoB'
 	},
-	credentials: {
+	slogan: {
 		fontSize: 18,
 		textAlign: 'center',
 		marginTop: 20,
 		marginBottom: 20,
-		paddingLeft: 125,
-		paddingRight: 125,
+		paddingLeft: 50,
+		paddingRight: 50,
 		fontFamily:'RobotoR'
 	},
     input: {
@@ -76,7 +85,7 @@ export default StyleSheet.create({
     footerView: {
         flex: 1,
         alignItems: "center",
-        marginTop: 20
+        marginTop: 40
     },
     footerText: {
         fontSize: 18,

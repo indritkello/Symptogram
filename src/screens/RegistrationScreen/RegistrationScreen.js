@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import styles from './styles';
+import { SymColors } from '../../assets/constants';
 import { firebase } from '../../firebase/config'
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function RegistrationScreen({navigation}) {
     const [fullName, setFullName] = useState('')
@@ -49,7 +51,7 @@ export default function RegistrationScreen({navigation}) {
     }
 
     return (
-        <View style={styles.container}>
+        <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}>
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
@@ -62,7 +64,8 @@ export default function RegistrationScreen({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholder='Name'
-                    placeholderTextColor="#aaaaaa"
+					placeholderTextColor={SymColors.input}
+					opacity
                     onChangeText={(text) => setFullName(text)}
                     value={fullName}
                     underlineColorAndroid="transparent"
@@ -71,7 +74,7 @@ export default function RegistrationScreen({navigation}) {
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'
-                    placeholderTextColor="#aaaaaa"
+                    placeholderTextColor={SymColors.input}
                     onChangeText={(text) => setEmail(text)}
                     value={email}
                     underlineColorAndroid="transparent"
@@ -90,7 +93,8 @@ export default function RegistrationScreen({navigation}) {
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"
                     secureTextEntry
-                    placeholder='Password'
+					placeholder='Password'
+					placeholderTextColor={SymColors.input}
                     onChangeText={(text) => setPassword(text)}
                     value={password}
                     underlineColorAndroid="transparent"
@@ -100,7 +104,8 @@ export default function RegistrationScreen({navigation}) {
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"
                     secureTextEntry
-                    placeholder='Confirm Password'
+					placeholder='Confirm Password'
+					placeholderTextColor={SymColors.input}
                     onChangeText={(text) => setConfirmPassword(text)}
                     value={confirmPassword}
                     underlineColorAndroid="transparent"
@@ -115,6 +120,6 @@ export default function RegistrationScreen({navigation}) {
                     <Text style={styles.footerText}>Already got an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Log in</Text></Text>
                 </View>
             </KeyboardAwareScrollView>
-        </View>
+        </LinearGradient>
     )
 }

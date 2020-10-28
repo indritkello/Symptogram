@@ -26,43 +26,53 @@ export default StyleSheet.create({
 	},
 	h1: {
 		textAlign: 'center',
-		fontSize: 28,
-		fontWeight: 'normal'
+		fontSize: 32,
+		fontWeight: 'normal',
+		fontFamily:'RobotoB'
 	},
 	credentials: {
 		textAlign: 'center',
 		marginTop: 20,
 		marginBottom: 20,
-		paddingLeft: 125,
-		paddingRight: 125,
+		paddingLeft: 100,
+		paddingRight: 100,
+		fontSize: 18,
+		fontFamily:'RobotoR'
 	},
     input: {
         height: 70,
         borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: SymColors.white,
+		backgroundColor: SymColors.white,
+		fontSize: 16,
         marginTop: 10,
         marginBottom: 10,
-        marginLeft: 30,
-        marginRight: 30,
-        paddingLeft: 16
+        marginLeft: 45,
+        marginRight: 45,
+		paddingLeft: 16,
+		color:SymColors.black
     },
     button: {
-        backgroundColor: SymColors.primary,
-        marginLeft: 50,
-        marginRight: 50,
+		backgroundColor: SymColors.primary,
+        marginLeft: 65,
+        marginRight: 65,
         marginTop: 20,
-        height: 70,
+        height: 50,
 		borderRadius: 20,
-		width: windowWidth-100,
+		width: windowWidth-130,
         alignItems: "center",
-        justifyContent: 'center'
+		justifyContent: 'center',
+		shadowColor: SymColors.primary,
+		shadowOffset: { width: 0, height: 1 },
+		shadowOpacity: 0.5,
+		shadowRadius: 6,  
+		elevation: 5
     },
     buttonTitle: {
-        color: SymColors.white,
-		fontSize: 18,
+		color: SymColors.white,
+		fontSize: 20,
 		textTransform: "uppercase",
-        fontWeight: "bold"
+		fontFamily:'RobotoB'
     },
     footerView: {
         flex: 1,
@@ -70,12 +80,15 @@ export default StyleSheet.create({
         marginTop: 20
     },
     footerText: {
-        fontSize: 16,
-        color: SymColors.black
+        fontSize: 18,
+		color: SymColors.black,
+		fontFamily:'RobotoR'
     },
     footerLink: {
-        color: SymColors.red,
+		color: SymColors.red,
         fontWeight: "bold",
-        fontSize: 16
+		fontSize: 18,
+		fontFamily:'RobotoB',
+		textDecorationLine: 'underline'
     }
 })

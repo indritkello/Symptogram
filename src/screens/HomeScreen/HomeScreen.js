@@ -1,36 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View,StyleSheet, ScrollView } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
-import { BottomNav } from '../../components/bottom-nav';
+import { SearchBar } from 'react-native-elements';
+import Card from './functions/card';
+import DropButton from './functions/drop-down';
+import Title from './functions/title';
 
 export default function HomeScreen(props) {
 
     const [entityText, setEntityText] = useState('')
     const [entities, setEntities] = useState([])
 
-    const entityRef = firebase.firestore().collection('entities')
-    const userID = props.extraData.id
+    //const entityRef = firebase.firestore().collection('entities')
+    const userID = props.extraData.uId
 
-    useEffect(() => {
-        entityRef
-            .where("authorID", "==", userID)
-            .orderBy('createdAt', 'desc')
-            .onSnapshot(
-                querySnapshot => {
-                    const newEntities = []
-                    querySnapshot.forEach(doc => {
-                        const entity = doc.data()
-                        entity.id = doc.id
-                        newEntities.push(entity)
-                    });
-                    setEntities(newEntities)
-                },
-                error => {
-                    console.log(error)
-                }
-            )
-    }, [])
+
 
     const onAddButtonPress = () => {
         if (entityText && entityText.length > 0) {
@@ -51,8 +36,7 @@ export default function HomeScreen(props) {
                 });
         }
     }
-
-    const renderEntity = ({item, index}) => {
+const renderEntity = ({item, index}) => {
         return (
             <View style={styles.entityContainer}>
                 <Text style={styles.entityText}>
@@ -61,13 +45,12 @@ export default function HomeScreen(props) {
             </View>
         )
     }
-
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder='Add new entity'
+                    placeholder='Search for symptom ...'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setEntityText(text)}
                     value={entityText}
@@ -88,7 +71,6 @@ export default function HomeScreen(props) {
                     />
                 </View>
             )}
-            <BottomNav/>
         </View>
     )
 }

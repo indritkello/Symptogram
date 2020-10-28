@@ -3,12 +3,12 @@ import '@firebase/auth';
 import '@firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyD8XlzdW5jjjhL88A9vqYnmcnzA3lb6DEA',
-  authDomain: 'symptogram.firebaseapp.com',
-  databaseURL: 'https://symptogram.firebaseio.com',
-  projectId: 'symptogram',
-  messagingSenderId: '118633347729',
-  appId: '1:118633347729:ios:defd64bfb5fc6ab99d1d30',
+  apiKey: 'AIzaSyDjN7HtEIQAbpZhXmER43ZNIuL-TfTniD4',
+  authDomain: 'sympto-gram.firebaseapp.com',
+  databaseURL: 'https://sympto-gram.firebaseio.com',
+  projectId: 'sympto-gram',
+  messagingSenderId: '601966839349',
+  appId: '1:601966839349:ios:f91872f026c1535143937c',
 };
 
 if (!firebase.apps.length) {

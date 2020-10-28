@@ -7,42 +7,46 @@ import styles from './styles';
 export default function LoginScreen({navigation}) {
 
     const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
 
+    const [password, setPassword] = useState('')
+    firebase.auth().signOut();
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
     const onFooterLinkPress = () => {
         navigation.navigate('Registration')
     }
     const onDoctorSignIn = () => {
-        navigation.navigate('DoctorLogin')
+        navigation.navigate('Login')
     }
 
     const onLoginPress = () => {
-        firebase.auth().then(function(){
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then((response) => {
                 const uid = response.user.uid
-                const usersRef = firebase.firestore().collection('users')
-                usersRef
-                    .doc(uid)
-                    .get()
-                    .then(firestoreDocument => {
-                        if (!firestoreDocument.exists) {
-                            alert("User does not exist anymore.")
-                            return;
-                        }
-                        const user = firestoreDocument.data()
-                        navigation.navigate('Home', {user})
-                    })
-                    .catch(error => {
-                        alert(error)
-                    });
+                const email = response.user.email
+                const name = response.user.name
+                if(uid)
+                navigation.navigate('Home', uid)
+                // const usersRef = firebase.firestore().collection('users')
+                // usersRef
+                //     .doc(uid)
+                //     .get()
+                //     .then(firestoreDocument => {
+                //         // if (!firestoreDocument.exists) {
+                //         //     alert("User does not exist anymore." + uid)
+                //         //     return;
+                //         // }
+                //         const user = firestoreDocument.data()
+                //         navigation.navigate('Home', {response.user})
+                //     })
+                //     .catch(error => {
+                //         alert(error)
+                //     });
             })
             .catch(error => {
                 alert(error)
             })
-        });
     }
 	
     return (
@@ -77,7 +81,7 @@ export default function LoginScreen({navigation}) {
                 />
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => onLoginPress()}>
+                    onPress={onLoginPress}>
                     <Text style={styles.buttonTitle}>Log in</Text>
                 </TouchableOpacity>
                 <View style={styles.footerView}>

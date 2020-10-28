@@ -4,8 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { firebase } from '../../firebase/config'
 import styles from './styles';
 
-export default function LoginScreen({navigation}) {
-
+export default function DoctorLoginScreen({navigation}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -17,7 +16,6 @@ export default function LoginScreen({navigation}) {
     }
 
     const onLoginPress = () => {
-        firebase.auth().then(function(){
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -42,9 +40,8 @@ export default function LoginScreen({navigation}) {
             .catch(error => {
                 alert(error)
             })
-        });
     }
-	
+
     return (
         <View style={styles.container}>
             <KeyboardAwareScrollView
@@ -54,8 +51,6 @@ export default function LoginScreen({navigation}) {
                     style={styles.logo}
                     source={require('../../../assets/images/icon.png')}
                 /> */}
-				<Text h1 style={[styles.h1, {fontFamily:'RobotoB'}]}>Login</Text>
-				<Text style={styles.credentials}>Enter your login details to access your account</Text>
                 <TextInput
                     style={styles.input}
                     placeholder='E-mail'

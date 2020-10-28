@@ -20,6 +20,9 @@ export default function RegistrationScreen({navigation}) {
             return
         }
         firebase
+            .auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
+
+        firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then((response) => {

@@ -54,9 +54,11 @@ export default function RegistrationScreen({navigation}) {
                     style={styles.logo}
                     source={require('../../../assets/images/icon.png')}
                 /> */}
+				<Text h1 style={[styles.h1, {fontFamily:'RobotoB'}]}>Create an account</Text>
+				<Text style={styles.credentials}>Enter your personal details to create your account</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder='Full Name'
+                    placeholder='Name'
                     placeholderTextColor="#aaaaaa"
                     onChangeText={(text) => setFullName(text)}
                     value={fullName}
@@ -72,6 +74,15 @@ export default function RegistrationScreen({navigation}) {
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
+				 {/* <TextInput
+                    style={styles.input}
+                    placeholder='Phone number'
+                    placeholderTextColor="#aaaaaa"
+                    onChangeText={(text) => setPhone(text)}
+                    value={phone}
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                /> */}
                 <TextInput
                     style={styles.input}
                     placeholderTextColor="#aaaaaa"

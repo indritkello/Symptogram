@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from '../../assets/constants';
+import { SymColors } from '../../assets/constants';
 import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get('window').width;
@@ -12,7 +12,7 @@ export default StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: Colors.secondaryLighter
+		backgroundColor: SymColors.secondaryLighter
     },
     title: {
     },
@@ -39,7 +39,7 @@ export default StyleSheet.create({
         height: 70,
         borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: Colors.white,
+        backgroundColor: SymColors.white,
         marginTop: 10,
         marginBottom: 10,
         marginLeft: 30,
@@ -47,7 +47,7 @@ export default StyleSheet.create({
         paddingLeft: 16
     },
     button: {
-        backgroundColor: Colors.primary,
+        backgroundColor: SymColors.primary,
         marginLeft: 50,
         marginRight: 50,
         marginTop: 20,
@@ -58,7 +58,7 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     buttonTitle: {
-        color: Colors.white,
+        color: SymColors.white,
 		fontSize: 24,
 		textTransform: "uppercase",
         fontWeight: "bold"
@@ -70,10 +70,10 @@ export default StyleSheet.create({
     },
     footerText: {
         fontSize: 16,
-        color: Colors.black
+        color: SymColors.black
     },
     footerLink: {
-        color: Colors.red,
+        color: SymColors.red,
         fontWeight: "bold",
         fontSize: 16
     }

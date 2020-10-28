@@ -1,4 +1,4 @@
-export const Colors = {
+export const SymColors = {
 	primary: '#2B87E0',
 	secondary: '#BBE7E8',
 	secondaryLighter: '#E3F5F5',

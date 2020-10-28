@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from '../../assets/constants';
+import { SymColors } from '../../assets/constants';
 
 export default StyleSheet.create({
     container: {
         flex: 1,
 		alignItems: 'center',
-		backgroundColor: Colors.white
+		backgroundColor: SymColors.white
     },
     formContainer: {
         flexDirection: 'row',

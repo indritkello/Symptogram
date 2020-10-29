@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View,StyleSheet, ScrollView } from 'react-native'
+import { FlatList, Keyboard, Text, TextInput, Button, TouchableOpacity, View, StyleSheet, ScrollView } from 'react-native'
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import { SearchBar } from 'react-native-elements';
 import SimpleLineIcons from 'react-native-vector-icons/MaterialIcons';
 import { BottomNavigation, ThemeProvider } from 'react-native-material-ui';
+import { SymColors } from '../../assets/constants';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function HomeScreen(props) {
 
     const userID = props.extraData.id
-    const fullname = "Test"
+    const fullname = props.extraData.fullName
     const [symptomText, setSymptomText] = useState('')
     const [entities, setEntities] = useState([])
     const symptomsRef = firebase.firestore().collection('symptoms')
@@ -71,25 +73,30 @@ export default function HomeScreen(props) {
     }
 
     return (
-        <View style={styles.container}>
-            <View style={styles.formContainer}>
-                <Text style={styles.greeting} >
+        <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}> 
+                {/* <Text style={styles.greeting}>
                 {"Hello "}                
-                {"\n"}
-                </Text>
+                {fullname}
+                </Text> */}
+				{/* <Text>Clinical decision support tool that keeps track of user symptoms and saves time for family doctors</Text> */}
                 <TextInput
-                    style={styles.input}
+                    style={styles.symptomsButton}
                     placeholder='Search symptoms...'
-                    placeholderTextColor="#aaaaaa"
+                    placeholderTextColor={SymColors.black}
                     onChangeText={(text) => setSymptomText(text)}
                     value={symptomText}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
-                <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
+				{/* <Button
+					title={fullname}
+					style={styles.symptomsButton}
+					onPress={() => alert('Simple Button pressed')}
+                /> */}
+                {/* <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
                     <Text style={styles.buttonText}>Add</Text>
-                </TouchableOpacity>
-            </View>
+                </TouchableOpacity> */}
+            
             { entities && (
                 <View style={styles.listContainer}>
                     <FlatList
@@ -100,6 +107,6 @@ export default function HomeScreen(props) {
                     />
                 </View>
             )}           
-        </View>
+        </LinearGradient>
     )
 }

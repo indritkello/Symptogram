@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { SymColors } from '../../assets/constants';
+import { Dimensions } from "react-native";
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
     container: {
@@ -9,11 +13,11 @@ export default StyleSheet.create({
     },
     greeting:{
         paddingTop: 10,
-        color: 'black'
+        color: SymColors.black
     },
     formContainer: {
         flexDirection: 'row',
-        height: 80,
+        height: windowHeight,
         marginTop: 40,
         marginBottom: 20,
         flex: 1,
@@ -24,14 +28,19 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    input: {
-        height: 48,
-        borderRadius: 5,
+	symptomsButton: {
+		height: 70,
+		width: windowWidth-45,
+        borderRadius: 20,
         overflow: 'hidden',
-        backgroundColor: 'white',
-        paddingLeft: 16,
-        flex: 1,
-        marginRight: 5
+		backgroundColor: SymColors.white,
+		fontSize: 16,
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: 45,
+        marginRight: 45,
+		padding: 20,
+		color:SymColors.black
     },
     button: {
         height: 47,

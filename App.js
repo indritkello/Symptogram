@@ -63,7 +63,7 @@ const onHomePressed = ()=>{
     <NavigationContainer>
       <Stack.Navigator>
         { user ? (
-          <Stack.Screen name="Home">
+          <Stack.Screen name="Home" options={{headerTransparent: false}}>
             {props => <HomeScreen {...props} extraData={user} />}
           </Stack.Screen>
         ) : (

@@ -24,7 +24,7 @@ export default function WelcomeScreen({navigation}) {
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
 				<SymptogramLogo style={styles.logo} />
-				<Text style={styles.slogan}>Symptogram is a clinical decision tool that keeps track of users symptoms and cuts down time for family doctors</Text>
+				<Text style={styles.slogan}>Clinical decision support tool that keeps track of user symptoms and saves time for family doctors</Text>
 				<WelcomeImg style={styles.welcomeImage} />
                 <TouchableOpacity
                     style={styles.button}

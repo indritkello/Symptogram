@@ -12,6 +12,7 @@ export default StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
+        height: windowHeight,
 		backgroundColor: SymColors.secondaryLighter
     },
     title: {

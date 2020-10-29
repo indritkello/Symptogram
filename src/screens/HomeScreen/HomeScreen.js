@@ -9,15 +9,16 @@ import { SymColors } from '../../assets/constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationActions } from '@react-navigation/native'
 
-export default function HomeScreen(){
+export default function HomeScreen(props){
 
-    //const userID = props.extraData.id
-    //const fullname = props.extraData.fullName
+    const userID = props.extraData.id
+    const fullname = props.extraData.fullName
 
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}> 
                 <Text style={styles.greeting}>
-                {"Hello "}
+                {"Hello "}                
+                {fullname}
                 </Text>                
         </LinearGradient>
     )

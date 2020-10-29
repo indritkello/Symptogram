@@ -7,6 +7,10 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		backgroundColor: SymColors.white
     },
+    greeting:{
+        paddingTop: 10,
+        color: 'black'
+    },
     formContainer: {
         flexDirection: 'row',
         height: 80,

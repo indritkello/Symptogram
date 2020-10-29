@@ -3,32 +3,50 @@ import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View,StyleSheet,
 import styles from './styles';
 import { firebase } from '../../firebase/config'
 import { SearchBar } from 'react-native-elements';
-import Card from './functions/card';
-import DropButton from './functions/drop-down';
-import Title from './functions/title';
+import SimpleLineIcons from 'react-native-vector-icons/MaterialIcons';
+import { BottomNavigation, ThemeProvider } from 'react-native-material-ui';
 
 export default function HomeScreen(props) {
 
-    const [entityText, setEntityText] = useState('')
+    const userID = props.extraData.id
+    const fullname = "Test"
+    const [symptomText, setSymptomText] = useState('')
     const [entities, setEntities] = useState([])
+    const symptomsRef = firebase.firestore().collection('symptoms')
 
-    //const entityRef = firebase.firestore().collection('entities')
-    const userID = props.extraData.uId
-
-
+    useEffect(() => {
+        symptomsRef
+            .where("patientId", "==", userID)
+            .orderBy('timestamp', 'desc')
+            .onSnapshot(
+                querySnapshot => {
+                    const newEntities = []
+                    querySnapshot.forEach(doc => {
+                        const entity = doc.data()
+                        alert(1)
+                        newEntities.push(entity)
+                    });
+                    setEntities(newEntities)
+                },
+                error => {
+                    console.log(error)
+                }
+            )
+    }, [])
 
     const onAddButtonPress = () => {
-        if (entityText && entityText.length > 0) {
+        if (symptomText && symptomText.length > 0) {
             const timestamp = firebase.firestore.FieldValue.serverTimestamp();
             const data = {
-                text: entityText,
-                authorID: userID,
-                createdAt: timestamp,
+                name: symptomText,
+                patientId: userID,
+                timestamp: timestamp
             };
-            entityRef
+            alert(data)
+            symptomsRef
                 .add(data)
                 .then(_doc => {
-                    setEntityText('')
+                    setSymptomText('')
                     Keyboard.dismiss()
                 })
                 .catch((error) => {
@@ -36,24 +54,35 @@ export default function HomeScreen(props) {
                 });
         }
     }
-const renderEntity = ({item, index}) => {
+
+    const renderEntity = ({item, index}) => {
         return (
             <View style={styles.entityContainer}>
                 <Text style={styles.entityText}>
-                    {index}. {item.text}
+                    {item.name}
                 </Text>
             </View>
         )
     }
+
+
+    const onHomePressed = ()=>{
+    navigation.navigate('Home');
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
+                <Text style={styles.greeting} >
+                {"Hello "}                
+                {"\n"}
+                </Text>
                 <TextInput
                     style={styles.input}
-                    placeholder='Search for symptom ...'
+                    placeholder='Search symptoms...'
                     placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setEntityText(text)}
-                    value={entityText}
+                    onChangeText={(text) => setSymptomText(text)}
+                    value={symptomText}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
@@ -66,11 +95,11 @@ const renderEntity = ({item, index}) => {
                     <FlatList
                         data={entities}
                         renderItem={renderEntity}
-                        keyExtractor={(item) => item.id}
+                        keyExtractor={(item) => item.name}
                         removeClippedSubviews={true}
                     />
                 </View>
-            )}
+            )}           
         </View>
     )
 }

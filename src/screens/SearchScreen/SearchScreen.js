@@ -5,106 +5,84 @@ import { firebase } from '../../firebase/config'
 import { SearchBar } from 'react-native-elements';
 import { SymColors } from '../../assets/constants';
 import { LinearGradient } from 'expo-linear-gradient';
+import Card from './card';
 
 export default function SearchScreen(props) {
 
+    const jsonData = require('../../../assets/knowledge/symptoms.json');
     const userID = props.extraData.id
     const fullname = props.extraData.fullName
     const [symptomText, setSymptomText] = useState('')
     const [entities, setEntities] = useState([])
-    const symptomsRef = firebase.firestore().collection('symptoms')
+    const [search, setSearch] = useState('')
+    const [searching, setSearching] = useState('')
+    const [cards, setCards] = useState('')
 
-    useEffect(() => {
-        symptomsRef
-            .where("patientId", "==", userID)
-            .orderBy('timestamp', 'desc')
-            .onSnapshot(
-                querySnapshot => {
-                    const newEntities = []
-                    querySnapshot.forEach(doc => {
-                        const entity = doc.data()
-                        alert(1)
-                        newEntities.push(entity)
-                    });
-                    setEntities(newEntities)
-                },
-                error => {
-                    console.log(error)
-                }
+    const updateSearch = (text) => {
+        setSearching(true);
+        setSearch(text);
+        if (text.length > 0) {
+            if (searching == false && search != '') {
+                searching = true;
+            }
+
+            // filter out symptoms without the umls characters, changing both names to lowercase
+            const symptoms = jsonData.symptoms
+            .filter(symptom => symptom.toLowerCase().includes(text.toLowerCase()));
+
+            const uniqueSymptomSearch = []
+            symptoms.map(symptom=>{
+             if(uniqueSymptomSearch.indexOf(symptom)===-1)
+             uniqueSymptomSearch.push(symptom)   
+            })
+
+            setCards(uniqueSymptomSearch.map(symptom => 
+            (
+                <Card
+                    key={symptom.substr(0, symptom.toString().indexOf("_"))}
+                    text={symptom.substr(symptom.toString().indexOf("_")+1)}
+                />
             )
-    }, [])
-
-    const onAddButtonPress = () => {
-        if (symptomText && symptomText.length > 0) {
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-            const data = {
-                name: symptomText,
-                patientId: userID,
-                timestamp: timestamp
-            };
-            alert(data)
-            symptomsRef
-                .add(data)
-                .then(_doc => {
-                    setSymptomText('')
-                    Keyboard.dismiss()
-                })
-                .catch((error) => {
-                    alert(error)
-                });
+            ));
         }
     }
 
-    const renderEntity = ({item, index}) => {
-        return (
-            <View style={styles.entityContainer}>
-                <Text style={styles.entityText}>
-                    {item.name}
-                </Text>
-            </View>
-        )
+
+
+    const handleSearchCancel = () => {
+      setSearching(false)
     }
 
-
-    const onHomePressed = ()=>{
-    navigation.navigate('Home');
+    const handleSearchClear = () => {
+      setSearching(false)
     }
 
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}> 
-                {/* <Text style={styles.greeting}>
-                {"Hello "}                
-                {fullname}
-                </Text> */}
-				{/* <Text>Clinical decision support tool that keeps track of user symptoms and saves time for family doctors</Text> */}
-                <TextInput
-                    style={styles.symptomsButton}
-                    placeholder='Search symptoms...'
-                    placeholderTextColor={SymColors.black}
-                    onChangeText={(text) => setSymptomText(text)}
-                    value={symptomText}
-                    underlineColorAndroid="transparent"
-                    autoCapitalize="none"
-                />
-				{/* <Button
-					title={fullname}
-					style={styles.symptomsButton}
-					onPress={() => alert('Simple Button pressed')}
-                /> */}
-                {/* <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
-                    <Text style={styles.buttonText}>Add</Text>
-                </TouchableOpacity> */}
+
+             <SearchBar
+                placeholder="Search symptoms"
+                onChangeText={updateSearch}
+                value = {search}
+                inputStyle={styles.symptomsButton}
+                lightTheme
+                autoCorrect={false}
+                inputContainerStyle={styles.searchContainer}
+                onCancel={handleSearchCancel}
+                onClear={handleSearchClear}
+            />
             
-            { entities && (
-                <View style={styles.listContainer}>
-                    <FlatList
-                        data={entities}
-                        renderItem={renderEntity}
-                        keyExtractor={(item) => item.name}
-                        removeClippedSubviews={true}
-                    />
-                </View>
-            )}           
+            {searching
+            ? 
+            (
+              <ScrollView showsVerticalScrollIndicator style={styles.cards}>
+                {cards}
+              </ScrollView>
+            )
+            : 
+            (
+              <></>
+            )                    }          
         </LinearGradient>
     )
 }

@@ -14,23 +14,38 @@ if (!global.atob) { global.atob = decode }
 
 const Stack = createStackNavigator();
 
-export default function App() {
+export default function App({navigation}) {
 
   const [loading, setLoading] = useState(true)
   const [user, setUser] = useState(null)
 
-  useEffect(() => {
+    useEffect(() => {
+    const usersRef = firebase.firestore().collection('users');
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-       
+        usersRef
+          .doc(user.uid)
+          .get()
+          .then((document) => {
+            const userData = document.data()
             setLoading(false)
-            setUser(user)
-          
+            setUser(userData)
+          })
+          .catch((error) => {
+            setLoading(false)
+          });
       } else {
         setLoading(false)
       }
     });
   }, []);
+
+
+
+
+const onHomePressed = ()=>{
+    navigation.navigate('Home');
+}
 
   const [fontsLoaded] = useFonts({
 	RobotoT: Roboto_100Thin,
@@ -67,14 +82,12 @@ export default function App() {
             iconSet="SimpleLineIcons"
             icon={<SimpleLineIcons name="face" size={25} color="red" />}
             label="You"
-            onPress={() => this.changeReset('You')}
           />
 
           <BottomNavigation.Action
             key="list"
             icon={<SimpleLineIcons name="list" size={25} />}
             label="Symptoms"
-            onPress={() => this.changeReset('List')}
           />
 		<BottomNavigation.Action
             key="logout"

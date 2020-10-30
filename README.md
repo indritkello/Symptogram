@@ -17,13 +17,13 @@ expo start
 ```
 ##Test accounts
 
-#Patient <br>
-E-mail: olav@gmail.com <br>
+#Patient
+E-mail: olav@gmail.com
 Password: test1234
 
-#Doctor GP <br>
-Einar Koman <br>
-herId: 435266 <br>
+#Doctor GP
+Einar Koman
+herId: 435266
 Password: 002233 
 ```
 

@@ -3,7 +3,7 @@
 -If you want to take a look right away, please follow this step
 1) Install Expo in your phone and create an account
 2) Scan this QR code with your phone camera and wait for the top notification to show "Open in Expo" 
-https://expo.io/@painless-no/projects/symptogram
+https://expo.io/@symptogram/projects/symptogram
 
 
 ## Installation

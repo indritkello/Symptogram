@@ -42,11 +42,16 @@ export default StyleSheet.create({
 	slogan: {
 		fontSize: 18,
 		textAlign: 'center',
-		marginTop: 20,
-		marginBottom: 20,
-		paddingLeft: 50,
-		paddingRight: 50,
-		fontFamily:'RobotoR'
+		borderRadius:15,
+		overflow:"hidden",
+		marginTop: 5,
+		marginBottom: 5,
+		marginLeft: 20,
+		marginRight: 20,
+		padding: 15,
+		fontFamily:'RobotoR',
+		backgroundColor:SymColors.white,
+		width: windowWidth-40
 	},
     input: {
         height: 70,

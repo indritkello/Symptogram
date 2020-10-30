@@ -23,7 +23,6 @@ export default function SymptomsScreen(props) {
                     const newEntities = []
                     querySnapshot.forEach(doc => {
                         const entity = doc.data()
-                        console.log(entity.name);
                         newEntities.push(entity)
                     });
                     setEntities(newEntities)
@@ -37,8 +36,8 @@ export default function SymptomsScreen(props) {
     const renderEntity = ({item, index}) => {
         return (
             <View style={styles.entityContainer}>
-                <Text style={styles.entityText}>
-                    {item.name}
+                <Text style={styles.entityText} onPress={()=>{alert(new Date(item.timestamp.seconds * 1000).toLocaleDateString("en-US"))}}>
+                    {item.name}   {new Date(item.timestamp.seconds * 1000).toLocaleTimeString("en-US")}
                 </Text>
             </View>
         )

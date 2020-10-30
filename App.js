@@ -5,7 +5,8 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { WelcomeScreen, LoginScreen, HomeScreen, ProfileScreen,
-RegistrationScreen, SearchScreen, BottomScreen, SymptomsScreen} from './src/screens'
+RegistrationScreen, SearchScreen, BottomScreen, SymptomsScreen,
+DoctorProfileScreen, VerifyDoctorScreen} from './src/screens'
 import { AppLoading } from 'expo';
 import { useFonts, Roboto_100Thin, Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import {decode, encode} from 'base-64'

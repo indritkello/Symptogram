@@ -45,6 +45,7 @@ export default function LoginScreen({navigation}) {
             })
     }
     const onDoctorSignIn = () => {
+        navigation.navigate('VerifyDoctor')
     }
 	
     return (

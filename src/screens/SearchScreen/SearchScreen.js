@@ -22,10 +22,9 @@ export default function SearchScreen(props) {
     const symptomsRef = firebase.firestore().collection('symptoms')
     const onSymptomSelect = (symptom)=>{
         setSearching(false);
+        setSearch(symptom.substr(symptom.toString().indexOf("_")+1));
         setSymptomKey(symptom.substr(0, symptom.toString().indexOf("_")));
         setSymptomName(symptom.substr(symptom.toString().indexOf("_")+1));
-        
-        setSearch(symptomName);
         setSymptomSelected(true);
     }
     const saveSymptomDetails = ()=>{
@@ -37,27 +36,28 @@ export default function SearchScreen(props) {
                 description: description,
                 timestamp: timestamp
             };
+            if(!data.description || data.name){
+                 alert('Please check your data!'); return;
+            }
             symptomsRef
                 .add(data)
                 .then(_doc => {
                     alert("We saved your symptom! You can review your symptoms in the history window!")
                     setSymptomSelected(false);
                     setSearching(true);
-                    setSymptomText('');
                     setDescription('');
+                    setSymptomName('');
+                    setSymptomKey('');
                 })
                 .catch((error) => {
                     alert(error)
                 });
     }
     const updateSearch = (text) => {
-        setSymptomSelected(false);
+        setSymptomName('');
         setSearching(true);
         setSearch(text);
         if (text.length > 0) {
-            if (searching == false && search != '') {
-                setSearching(true);
-            }
 
             // filter out symptoms without the umls characters, changing both names to lowercase
             const symptoms = jsonData.symptoms
@@ -80,11 +80,11 @@ export default function SearchScreen(props) {
 
 
     const handleSearchCancel = () => {
-      setSearching(false)
+      setSearching(true);
     }
 
     const handleSearchClear = () => {
-      setSearching(false)
+      setSearching(true);
     }
 
     return (

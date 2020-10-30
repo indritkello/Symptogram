@@ -20,6 +20,19 @@ const faq = [
           info: 'Symptogram is a mobile app that keeps track of your symptoms and allows your family doctor to monitor your condition, catches disease symptoms in time, and improves the quality of his recommendations.'
                ,
           open: false,
+        },
+        {
+          heading: 'How does it work',
+          info: 'At anytime you can make your symptoms visible to your doctor. You can book an online consultation through the system.'
+               ,
+          open: false,
+        },
+        {
+          heading: 'Doctors consultation',
+          info: 'We help your doctor to save time by providing the necessary info and intelligent recommandations prior to the consultation.'
+          + '\n This way, both you and your doctor can better utilize time and have a more efficient doctor-patient relation. '
+               ,
+          open: false,
         }
       ];
 

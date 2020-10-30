@@ -93,7 +93,7 @@ export default function PatientIntelligentReportScreen({route}) {
                         keyExtractor={(item) => item.name}
                         removeClippedSubviews={true}
                     />
-                <Text style={styles.greeting}>Our results</Text>
+                <Text style={styles.greeting} onPress={getIntelligentResult}>Our results</Text>
                 <FlatList
                         data={results}
                         renderItem={renderResult}

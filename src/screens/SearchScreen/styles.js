@@ -37,7 +37,7 @@ export default StyleSheet.create({
 		fontSize: 16,
 		marginTop: 10,
 		marginBottom: 10,
-		marginLeft: 45,
+		marginLeft: 0,
 		marginRight: 45,
 		padding: 20,
 		color: SymColors.black
@@ -114,6 +114,10 @@ export default StyleSheet.create({
 	searchContainer: {
 		backgroundColor: 'white',
 	},
+	searchBackground: {
+		backgroundColor: SymColors.white,
+		borderBottomColor:SymColors.white
+	},
 	dropDown: {
 		top: '35%',
 		marginLeft: '11.7%',
@@ -144,7 +148,8 @@ export default StyleSheet.create({
 		paddingRight: 14,
 		paddingBottom: 19,
 		paddingTop: 19,
-		fontSize: 13,
+		fontSize: 18,
+		fontFamily:'RobotoB'
 	},
 
 	generalbox: {
@@ -153,15 +158,17 @@ export default StyleSheet.create({
 		marginLeft: 34,
 		marginRight: 34,
 		borderLeftWidth: 5,
-		backgroundColor: 'white',
-		shadowColor: '#000',
-		shadowOffset: {
-			width: 0,
-			height: 2
-		},
-		shadowOpacity: 0.4,
-		shadowRadius: 2,
-		elevation: 1,
+		// borderTopRightRadius: 20,
+		// borderBottomRightRadius: 20,
+		backgroundColor: SymColors.white,
+		// shadowColor: '#000',
+		// shadowOffset: {
+		// 	width: 0,
+		// 	height: 2
+		// },
+		// shadowOpacity: 0.4,
+		// shadowRadius: 2,
+		// elevation: 1,
 	},
 
 	cardBox1: { // Most urgent

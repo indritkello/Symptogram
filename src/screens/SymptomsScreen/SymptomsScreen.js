@@ -23,7 +23,7 @@ export default function SymptomsScreen(props) {
                     const newEntities = []
                     querySnapshot.forEach(doc => {
                         const entity = doc.data()
-                        alert(1)
+                        console.log(entity.name);
                         newEntities.push(entity)
                     });
                     setEntities(newEntities)
@@ -33,27 +33,6 @@ export default function SymptomsScreen(props) {
                 }
             )
     }, [])
-
-    const onAddButtonPress = () => {
-        if (symptomText && symptomText.length > 0) {
-            const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-            const data = {
-                name: symptomText,
-                patientId: userID,
-                timestamp: timestamp
-            };
-            alert(data)
-            symptomsRef
-                .add(data)
-                .then(_doc => {
-                    setSymptomText('')
-                    Keyboard.dismiss()
-                })
-                .catch((error) => {
-                    alert(error)
-                });
-        }
-    }
 
     const renderEntity = ({item, index}) => {
         return (
@@ -72,29 +51,8 @@ export default function SymptomsScreen(props) {
 
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}> 
-                {/* <Text style={styles.greeting}>
-                {"Hello "}                
-                {fullname}
-                </Text> */}
-				{/* <Text>Clinical decision support tool that keeps track of user symptoms and saves time for family doctors</Text> */}
-                <TextInput
-                    style={styles.symptomsButton}
-                    placeholder='Search symptoms...'
-                    placeholderTextColor={SymColors.black}
-                    onChangeText={(text) => setSymptomText(text)}
-                    value={symptomText}
-                    underlineColorAndroid="transparent"
-                    autoCapitalize="none"
-                />
-				{/* <Button
-					title={fullname}
-					style={styles.symptomsButton}
-					onPress={() => alert('Simple Button pressed')}
-                /> */}
-                {/* <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
-                    <Text style={styles.buttonText}>Add</Text>
-                </TouchableOpacity> */}
-            
+                <Text style={styles.greeting}>History</Text> 
+
             { entities && (
                 <View style={styles.listContainer}>
                     <FlatList

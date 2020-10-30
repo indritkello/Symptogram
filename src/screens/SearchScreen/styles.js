@@ -42,13 +42,27 @@ export default StyleSheet.create({
 		padding: 20,
 		color:SymColors.black
     },
+    buttonTitle: {
+        color: SymColors.white,
+		fontSize: 20,
+		textTransform: "uppercase",
+		fontFamily:'RobotoB'
+    },
     button: {
-        height: 47,
-        borderRadius: 5,
-        backgroundColor: '#788eec',
-        width: 80,
+        backgroundColor: SymColors.primary,
+        marginLeft: 65,
+        marginRight: 65,
+        marginTop: 20,
+        height: 50,
+		    borderRadius: 20,
+		    width: windowWidth-130,
         alignItems: "center",
-        justifyContent: 'center'
+		    justifyContent: 'center',
+		    shadowColor: SymColors.primary,
+		    shadowOffset: { width: 0, height: 1 },
+		    shadowOpacity: 0.5,
+		    shadowRadius: 6, 
+		    elevation: 5
     },
     buttonText: {
         color: 'white',
@@ -117,5 +131,37 @@ export default StyleSheet.create({
     paddingLeft: 10,
     paddingTop: 10,
     paddingBottom: 15,
-  }
-})
+  },
+  textStyle: {
+    paddingLeft: 14,
+    paddingRight: 14,
+    paddingBottom: 19,
+    paddingTop: 19,
+    fontSize: 13,
+  },
+
+  generalbox: {
+    width: '82%',
+    marginTop: 13,
+    marginLeft: 34,
+    marginRight: 34,
+    borderLeftWidth: 5,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 2,
+    elevation: 1,
+  },
+
+  cardBox1: { // Most urgent
+    borderLeftColor: '#FC0F1B',
+  },
+  cardBox2: {
+    borderLeftColor: '#FDBF2E',
+  },
+  cardBox3: {
+    borderLeftColor: '#1EB1ED',
+
+  },
+});

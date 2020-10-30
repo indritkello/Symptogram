@@ -32,7 +32,7 @@ export default class DropButton extends React.Component {
           onPress={this.dropToggle}
         >
 
-          <View style={this.props.style.container}>
+          <View style={this.props.style.containerInfo}>
               <Text style={this.props.style.buttonTitle}>
                   {this.props.heading}
                 </Text>

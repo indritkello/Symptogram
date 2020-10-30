@@ -6,10 +6,13 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
-    container: {
+    containerInfo: {
+      flexDirection:'row',
+      alignItems: 'center',
+      paddingTop: 15,
+  },container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'space-between',
       paddingTop: 15,
   },
   dropDown: {
@@ -45,9 +48,7 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
   },
-  arrowButton: {
-    paddingRight: 15,
-  },
+
   greeting:{
       paddingTop: 10,
       color: SymColors.black

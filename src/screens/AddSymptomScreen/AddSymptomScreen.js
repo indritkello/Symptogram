@@ -57,7 +57,7 @@ export default function AddSymptomScreen(props) {
 
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}>
-        <></>
+        <Text>{"Hellooood"}</Text>
         </LinearGradient>
     )
 }

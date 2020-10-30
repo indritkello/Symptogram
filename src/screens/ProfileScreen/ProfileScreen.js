@@ -36,7 +36,7 @@ export default function ProfileScreen(props) {
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
-				<Text style={styles.slogan}>{props.extraData.fullname}</Text>
+				<Text style={styles.slogan}>{props.extraData.fullName}</Text>
                 <Text style={styles.slogan}>{props.extraData.email}</Text>
                 {userInfo?(
                 <>

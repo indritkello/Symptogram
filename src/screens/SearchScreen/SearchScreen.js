@@ -95,7 +95,8 @@ export default function SearchScreen(props) {
                 onChangeText={updateSearch}
                 value = {search}
                 inputStyle={styles.symptomsButton}
-                lightTheme
+				lightTheme
+				containerStyle={styles.searchBackground}
                 autoCorrect={false}
                 inputContainerStyle={styles.searchContainer}
                 onCancel={handleSearchCancel}

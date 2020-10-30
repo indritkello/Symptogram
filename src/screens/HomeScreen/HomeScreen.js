@@ -9,6 +9,7 @@ import { SymColors } from '../../assets/constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import { NavigationActions } from '@react-navigation/native'
 import DropButton from './drop-down';
+import SymptogramLogo from '../../../assets/images/logo';
 
 export default function HomeScreen(props){
 
@@ -43,18 +44,18 @@ const faq = [
           info={q.info}
           open={false}
           style={styles}
-          iconcolor="#FFFFFF"
+		  iconcolor={SymColors.black}
           iconsize={20}
         />
       ));
       
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}> 
-                <Text style={styles.greeting}>
+                {/* <Text style={styles.greeting}>
                 {"Hello "}                
                 {fullname}
-                </Text>      
-
+                </Text>       */}
+				<SymptogramLogo style={styles.logo} />
                 <ScrollView style={styles.dropDown}>
                 {/* <Title heading="" /> */}
                 {dropDowns}

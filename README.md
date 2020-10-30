@@ -1,7 +1,9 @@
 ## SYMPTOGRAM
 -This MVP was made using Expo, React-Native and Firebase. 
 -If you want to take a look right away, please follow this step
-1) Install Expo in your phone and create an account
+1) Install Expo in your phone and login with these credentials: 
+Email: lasse.buus@nettmaker.no
+Password: Pmq52xyg
 2) Scan this QR code with your phone camera and wait for the top notification to show "Open in Expo" 
 https://expo.io/@symptogram/projects/symptogram
 

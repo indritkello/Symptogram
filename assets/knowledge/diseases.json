@@ -1,5 +1,5 @@
 {
-"diseases":{
+"diseases":[
 	{
 		"Name":"UMLS:C0020538_hypertensive disease",
 		"Correlation":"3363",
@@ -2670,5 +2670,5 @@
 			"UMLS:C0015967_fever"
 		]
 	}
-}
+]
 }

@@ -12,7 +12,6 @@ export default StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-        height: windowHeight,
 		backgroundColor: SymColors.secondaryLighter
     },
     title: {
@@ -22,16 +21,7 @@ export default StyleSheet.create({
         height: 120,
         width: 90,
         alignSelf: "center",
-        margin: 0
-	},
-	welcomeImage: {
-        flex: 1,
-        height: 120,
-        width: 90,
-        alignSelf: "center",
-		marginTop: 75,
-		marginBottom: 75,
-
+        margin: 30
 	},
 	h1: {
 		textAlign: 'center',
@@ -39,13 +29,13 @@ export default StyleSheet.create({
 		fontWeight: 'normal',
 		fontFamily:'RobotoB'
 	},
-	slogan: {
+	credentials: {
 		fontSize: 18,
 		textAlign: 'center',
 		marginTop: 20,
 		marginBottom: 20,
-		paddingLeft: 50,
-		paddingRight: 50,
+		paddingLeft: 125,
+		paddingRight: 125,
 		fontFamily:'RobotoR'
 	},
     input: {
@@ -86,7 +76,7 @@ export default StyleSheet.create({
     footerView: {
         flex: 1,
         alignItems: "center",
-        marginTop: 40
+        marginTop: 20
     },
     footerText: {
         fontSize: 18,

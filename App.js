@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { WelcomeScreen, LoginScreen, HomeScreen, ProfileScreen,
 RegistrationScreen, SearchScreen, BottomScreen, SymptomsScreen,
-DoctorProfileScreen, VerifyDoctorScreen} from './src/screens'
+DoctorProfileScreen, VerifyDoctorScreen, PatientIntelligentReportScreen} from './src/screens'
 import { AppLoading } from 'expo';
 import { useFonts, Roboto_100Thin, Roboto_300Light, Roboto_400Regular, Roboto_500Medium, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import {decode, encode} from 'base-64'
@@ -156,6 +156,10 @@ export default function App() {
             <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="Search" component={SearchScreen} />            
             <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="Symptoms" component={SymptomsScreen} />            
             <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="Profile" component={ProfileScreen} />            
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="VerifyDoctor" component={VerifyDoctorScreen} />            
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="DoctorProfile" component={DoctorProfileScreen} />            
+            <Stack.Screen options={{headerTransparent: true, headerTitle: false, headerBackTitle: false}} name="PatientIntelligentReport" component={PatientIntelligentReportScreen} />            
+            
       </Stack.Navigator>
       </>
       )

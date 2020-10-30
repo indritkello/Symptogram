@@ -8,15 +8,31 @@ import { LinearGradient } from 'expo-linear-gradient';
 import WelcomeImg from '../../../assets/images/welcomeImg';
 import SymptogramLogo from '../../../assets/images/logo';
 
+
 export default function VerifyDoctorScreen({navigation}) {
 
+    const allowedHerId = '435266';
+    const allowedCode = '002233';
+    const[herId, setHerId] = useState('')
+    const[code, setCode] = useState('')
     const onFooterLinkPress = () => {
         navigation.navigate('Login')
 	}
-	
-	const onGetStarted = () => {
-        navigation.navigate('DoctorLogin')
+	const onHerIdChange = (text)=>{
+        setHerId(text);
     }
+	const onCodeChange = (text)=>{
+        setCode(text);
+    }
+	const onGetStarted = () => {
+        if((code!=allowedCode) || (herId!=allowedHerId))
+        {
+            alert("Please check your credentials!");
+            return;
+        }
+        navigation.navigate('DoctorProfile')
+    }
+    
 	
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}>
@@ -24,24 +40,25 @@ export default function VerifyDoctorScreen({navigation}) {
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
 				<SymptogramLogo style={styles.logo} />
-				<Text style={styles.slogan}>Clinical decision support tool that keeps track of user symptoms and saves time for family doctors</Text>
-				<WelcomeImg style={styles.welcomeImage} />
                 <TextInput
-                    style={styles.symptomsButton}
-                    placeholder="Write your HerId and Secret Code we sent to you"
-                    onChangeText={(text) => setSymptomText(text)}
-                    value={symptomText}
+                    style={styles.input}             
+                    placeholder="Write your HerId "
+                    onChangeText = {(text) => onHerIdChange(text)}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
+                />
+                <TextInput
+                    placeholder="Write your Code we sent to you"
+                    underlineColorAndroid="transparent"
+                    autoCapitalize="none"
+                    onChangeText = {(text) => onCodeChange(text)}
+                    style={styles.input}                    
                 />
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => onGetStarted()}>
                     <Text style={styles.buttonTitle}>Verify</Text>
                 </TouchableOpacity>
-                <View style={styles.footerView}>
-                    <Text style={styles.footerText}>Already have an account? <Text onPress={onFooterLinkPress} style={styles.footerLink}>Sign in</Text></Text>
-                </View>
             </KeyboardAwareScrollView>
         </LinearGradient>
     )

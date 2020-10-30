@@ -12,8 +12,13 @@ export default StyleSheet.create({
 		backgroundColor: SymColors.white
     },
     greeting:{
-        paddingTop: 10,
-        color: SymColors.black
+        paddingTop: 20,
+		color: SymColors.black,
+		fontFamily:'RobotoB',
+		fontSize:22,
+		textAlign:'center',
+		marginTop:10,
+		marginBottom:10
     },
     formContainer: {
         flexDirection: 'row',
@@ -51,21 +56,31 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     buttonText: {
-        color: 'white',
+        color: SymColors.white,
         fontSize: 16
     },
     listContainer: {
-        marginTop: 20,
-        padding: 20,
+		// marginTop: 20,
+		top: 40,
+		// padding: 20,
+		margin: 10,
+		marginBottom: 20,
+		bottom: 20,
     },
     entityContainer: {
-        marginTop: 16,
-        borderBottomColor: '#cccccc',
-        borderBottomWidth: 1,
-        paddingBottom: 16
+		marginTop: 10,
+		marginBottom: 10,
+		borderRadius: 25,
+		backgroundColor: SymColors.white,
+        // borderBottomColor: '#cccccc',
+        // borderBottomWidth: 1,
+        padding: 15
     },
     entityText: {
         fontSize: 20,
-        color: '#333333'
+		color: SymColors.black,
+		fontFamily:'RobotoB',
+		padding: 10,
+		fontSize: 20
     }
 })

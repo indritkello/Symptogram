@@ -34,8 +34,8 @@ export default StyleSheet.create({
 		textAlign: 'center',
 		marginTop: 20,
 		marginBottom: 20,
-		paddingLeft: 125,
-		paddingRight: 125,
+		paddingLeft: 100,
+		paddingRight: 100,
 		fontFamily:'RobotoR'
 	},
     input: {

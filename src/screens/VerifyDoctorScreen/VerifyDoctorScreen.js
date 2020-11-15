@@ -42,13 +42,13 @@ export default function VerifyDoctorScreen({navigation}) {
 				<SymptogramLogo style={styles.logo} />
                 <TextInput
                     style={styles.input}             
-                    placeholder="Write your HerId "
+                    placeholder="Write your identification number "
                     onChangeText = {(text) => onHerIdChange(text)}
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                 />
                 <TextInput
-                    placeholder="Write your Code we sent to you"
+                    placeholder="Write your unique code"
                     underlineColorAndroid="transparent"
                     autoCapitalize="none"
                     onChangeText = {(text) => onCodeChange(text)}

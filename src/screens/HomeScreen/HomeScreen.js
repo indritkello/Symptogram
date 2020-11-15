@@ -51,13 +51,8 @@ const faq = [
       
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}> 
-                {/* <Text style={styles.greeting}>
-                {"Hello "}                
-                {fullname}
-                </Text>       */}
 				<SymptogramLogo style={styles.logo} />
                 <ScrollView style={styles.dropDown}>
-                {/* <Title heading="" /> */}
                 {dropDowns}
               </ScrollView>          
         </LinearGradient>

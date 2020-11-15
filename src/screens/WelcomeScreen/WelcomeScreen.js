@@ -20,9 +20,7 @@ export default function WelcomeScreen({navigation}) {
 	
     return (
         <LinearGradient style={styles.container} colors={[SymColors.secondaryLighter, SymColors.secondary]}>
-            <KeyboardAwareScrollView
-                style={{ flex: 1, width: '100%' }}
-                keyboardShouldPersistTaps="always">
+            <KeyboardAwareScrollView keyboardShouldPersistTaps="always">
 				<SymptogramLogo style={styles.logo} />
 				<Text style={styles.slogan}>Clinical decision support tool that keeps track of user symptoms and saves time for family doctors</Text>
 				<WelcomeImg style={styles.welcomeImage} />

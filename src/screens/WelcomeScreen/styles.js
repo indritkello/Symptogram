@@ -13,14 +13,15 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
         height: windowHeight,
-		backgroundColor: SymColors.secondaryLighter
+		backgroundColor: SymColors.secondaryLighter,
+        paddingTop: '10%'
     },
     title: {
     },
     logo: {
         flex: 1,
         height: 120,
-        width: 90,
+        width: 100,
         alignSelf: "center",
         margin: 0
 	},

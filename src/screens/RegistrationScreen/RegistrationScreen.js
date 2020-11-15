@@ -55,13 +55,7 @@ export default function RegistrationScreen({navigation}) {
             <KeyboardAwareScrollView
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
-                {/* <Image
-                    style={styles.logo}
-                    source={require('../../../assets/images/icon.png')}
-                /> */}
-				<Text h1 style={[styles.h1, {fontFamily:'RobotoB'}]}>Create an account</Text>
-				<Text style={styles.credentials}>Enter your personal details to create your account</Text>
-                <TextInput
+				<TextInput
                     style={styles.input}
                     placeholder='Name'
 					placeholderTextColor={SymColors.input}

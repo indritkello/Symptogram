@@ -4,7 +4,7 @@
     "slug": "symptogram",
     "version": "1.0",
     "orientation": "default",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/expo-logo.png",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -14,7 +14,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "Symptogram is a clinical decision support tool that keeps track of users symptoms and cuts down time for family doctors by providing the patient report and intelligent results prior to the consultation.\n",
+    "description": "Symptogram is a clinical decision support tool that keeps track of users symptoms and cuts down time for family doctors by providing the patient report and intelligent results prior to the consultation.",
     "githubUrl": "https://github.com/indritkello/Symptogram"
   }
 }

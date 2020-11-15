@@ -1,6 +1,7 @@
 ## SYMPTOGRAM
 -This MVP was made using Expo, React-Native and Firebase. 
 
+
 ## Installation
 
 * **Clone and install packages**
